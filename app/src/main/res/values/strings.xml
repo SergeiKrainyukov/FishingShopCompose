@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">FishingShopCompose</string>
+
+    <!-- LoginScreen -->
+    <string name="scr_button_auth">Авторизация</string>
+
 </resources>
