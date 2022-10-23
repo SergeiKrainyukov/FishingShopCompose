@@ -2,6 +2,11 @@
     <string name="app_name">FishingShopCompose</string>
 
     <!-- LoginScreen -->
-    <string name="scr_button_auth">Авторизация</string>
+    <string name="scr_login_screen_button_auth">Авторизация</string>
+
+    <!-- GetCodeScreen -->
+    <string name="scr_get_code_screen_get_code_btn">Получить код</string>
+    <string name="scr_get_code_screen_authorization_title">Авторизация</string>
+    <string name="scr_get_code_screen_phone_number_title">по номеру телефона</string>
 
 </resources>
