@@ -7,7 +7,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
-import com.example.fishingshopcompose.ui.screens.LoginScreen
+import com.example.fishingshopcompose.ui.FishingShopApp
 import com.example.fishingshopcompose.ui.theme.FishingShopComposeTheme
 
 class MainActivity : ComponentActivity() {
@@ -19,7 +19,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    LoginScreen()
+                    FishingShopApp()
                 }
             }
         }

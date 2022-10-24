@@ -15,7 +15,7 @@ import com.example.fishingshopcompose.ui.screens.common.BottomButtonArgs
 import com.example.fishingshopcompose.ui.theme.FishingShopComposeTheme
 
 @Composable
-fun LoginScreen(modifier: Modifier = Modifier) {
+fun LoginScreen(modifier: Modifier = Modifier, onAuthButtonClicked: () -> Unit) {
     Box(modifier = modifier, contentAlignment = Alignment.BottomCenter) {
         Box(modifier = modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
             Image(
@@ -31,7 +31,9 @@ fun LoginScreen(modifier: Modifier = Modifier) {
         }
         BottomButton(
             modifier,
-            BottomButtonArgs(text = stringResource(R.string.scr_login_screen_button_auth), onClick = {})
+            BottomButtonArgs(
+                text = stringResource(R.string.scr_login_screen_button_auth),
+                onClick = { onAuthButtonClicked() })
         )
     }
 }
@@ -40,6 +42,6 @@ fun LoginScreen(modifier: Modifier = Modifier) {
 @Composable
 fun LoginScreenPreview() {
     FishingShopComposeTheme {
-        LoginScreen()
+        LoginScreen(onAuthButtonClicked = {})
     }
 }
