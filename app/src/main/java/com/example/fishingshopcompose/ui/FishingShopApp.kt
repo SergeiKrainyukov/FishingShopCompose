@@ -19,22 +19,22 @@ fun FishingShopApp(
     Scaffold { innerPadding ->
         NavHost(
             navController = navController,
-            startDestination = Screen.LoginScreen.name,
+            startDestination = AppScreen.LoginScreen.name,
             modifier = modifier.padding(innerPadding)
         ) {
-            composable(route = Screen.LoginScreen.name) {
+            composable(route = AppScreen.LoginScreen.name) {
                 LoginScreen {
-                    navController.navigate(Screen.GetCodeScreen.name)
+                    navController.navigate(AppScreen.GetCodeScreen.name)
                 }
             }
-            composable(route = Screen.GetCodeScreen.name) {
+            composable(route = AppScreen.GetCodeScreen.name) {
                 GetCodeScreen()
             }
         }
     }
 }
 
-enum class Screen {
+enum class AppScreen {
     LoginScreen,
     GetCodeScreen,
 }
