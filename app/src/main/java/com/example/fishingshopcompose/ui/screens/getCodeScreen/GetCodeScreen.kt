@@ -1,4 +1,4 @@
-package com.example.fishingshopcompose.ui.screens
+package com.example.fishingshopcompose.ui.screens.getCodeScreen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
@@ -23,6 +23,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.fishingshopcompose.R
 import com.example.fishingshopcompose.ui.screens.common.BottomButton
 import com.example.fishingshopcompose.ui.screens.common.BottomButtonArgs
@@ -30,7 +31,7 @@ import com.example.fishingshopcompose.ui.theme.FishingShopComposeTheme
 import com.example.fishingshopcompose.ui.theme.avenirNextFamily
 
 @Composable
-fun GetCodeScreen(modifier: Modifier = Modifier) {
+fun GetCodeScreen(viewModel: GetCodeScreenViewModel, modifier: Modifier = Modifier) {
     Box(modifier = modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
         Image(
             painter = painterResource(id = R.drawable.bg_get_code_screen),
@@ -48,14 +49,14 @@ fun GetCodeScreen(modifier: Modifier = Modifier) {
                     .fillMaxWidth()
                     .padding(top = 104.dp)
             )
-            PhoneNumberInput()
+            PhoneNumberInput(viewModel)
             BottomButton(bottomButtonArgs = BottomButtonArgs(stringResource(R.string.scr_get_code_screen_get_code_btn)) {})
         }
     }
 }
 
 @Composable
-fun Title(modifier: Modifier = Modifier) {
+private fun Title(modifier: Modifier = Modifier) {
     Column(modifier = modifier, horizontalAlignment = Alignment.CenterHorizontally) {
         Text(
             text = stringResource(R.string.scr_get_code_screen_authorization_title),
@@ -76,13 +77,13 @@ fun Title(modifier: Modifier = Modifier) {
 
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
-fun PhoneNumberInput(modifier: Modifier = Modifier) {
+private fun PhoneNumberInput(viewModel: GetCodeScreenViewModel, modifier: Modifier = Modifier) {
     val text = remember { mutableStateOf("") }
     val keyboardController = LocalSoftwareKeyboardController.current
     TextField(
         modifier = modifier,
         value = text.value,
-        onValueChange = { if (checkPhoneNumberLength(it)) text.value = it },
+        onValueChange = { if (viewModel.checkPhoneNumberLength(it)) text.value = it },
         singleLine = true,
         keyboardOptions = KeyboardOptions(
             keyboardType = KeyboardType.Phone,
@@ -90,7 +91,7 @@ fun PhoneNumberInput(modifier: Modifier = Modifier) {
         ),
         textStyle = TextStyle(color = Color.White, fontSize = 33.sp),
         keyboardActions = KeyboardActions(onDone = {
-            if (validatePhoneNumber(text.value))
+            if (viewModel.validatePhoneNumber(text.value))
                 keyboardController?.hide()
         }),
         colors = TextFieldDefaults.textFieldColors(
@@ -102,22 +103,10 @@ fun PhoneNumberInput(modifier: Modifier = Modifier) {
     )
 }
 
-fun checkPhoneNumberLength(text: String): Boolean {
-    if (text.startsWith("+") && text.length <= 12) return true
-    if (text.length <= 11) return true
-    return false
-}
-
-fun validatePhoneNumber(text: String): Boolean {
-    if (text.startsWith("+") && text.length < 12) return false
-    if (text.length < 11) return false
-    return true
-}
-
 @Preview(showBackground = true)
 @Composable
-fun GetCodeScreenPreview() {
+private fun GetCodeScreenPreview() {
     FishingShopComposeTheme {
-        GetCodeScreen()
+        GetCodeScreen(viewModel())
     }
 }
