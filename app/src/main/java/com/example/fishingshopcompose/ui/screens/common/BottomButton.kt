@@ -1,7 +1,6 @@
 package com.example.fishingshopcompose.ui.screens.common
 
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Button
@@ -20,7 +19,6 @@ import com.example.fishingshopcompose.ui.theme.avenirNextFamily
 fun BottomButton(modifier: Modifier = Modifier, bottomButtonArgs: BottomButtonArgs) {
     Button(
         modifier = modifier
-            .padding(bottom = 93.dp)
             .height(65.dp)
             .width(246.dp),
         shape = RoundedCornerShape(

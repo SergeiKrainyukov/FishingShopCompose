@@ -9,6 +9,7 @@ buildscript {
         core_ktx = '1.9.0'
         activity_compose = '1.6.0'
         navigation = '2.5.2'
+        constraint_layout = '1.1.0-alpha04'
 
         //testing
         junit = '4.13.2'

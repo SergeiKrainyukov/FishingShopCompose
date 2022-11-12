@@ -59,6 +59,7 @@ dependencies {
     implementation "androidx.compose.material:material:$material"
     implementation "androidx.navigation:navigation-runtime-ktx:$navigation"
     implementation "androidx.navigation:navigation-compose:$navigation"
+    implementation "androidx.constraintlayout:constraintlayout-compose:$constraint_layout"
 
     //Testing
     testImplementation "junit:junit:$junit"
