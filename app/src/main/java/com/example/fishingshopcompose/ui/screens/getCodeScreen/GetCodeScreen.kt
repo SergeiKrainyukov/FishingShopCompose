@@ -23,6 +23,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.fishingshopcompose.R
 import com.example.fishingshopcompose.ui.screens.common.BottomButton
@@ -32,26 +33,43 @@ import com.example.fishingshopcompose.ui.theme.avenirNextFamily
 
 @Composable
 fun GetCodeScreen(viewModel: GetCodeScreenViewModel, modifier: Modifier = Modifier) {
-    Box(modifier = modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+    ConstraintLayout(
+        modifier = modifier
+            .fillMaxSize()
+    ) {
+        val (backgroundItem, titleItem, phoneNumberInputItem, bottomButtonItem) = createRefs()
         Image(
             painter = painterResource(id = R.drawable.bg_get_code_screen),
             contentDescription = null,
             contentScale = ContentScale.FillWidth,
-            modifier = modifier.fillMaxSize()
+            modifier = modifier
+                .fillMaxSize()
+                .constrainAs(backgroundItem) {
+                    centerVerticallyTo(parent)
+                    centerHorizontallyTo(parent)
+                }
         )
-        Column(
-            modifier = modifier.fillMaxSize(),
-            verticalArrangement = Arrangement.SpaceBetween,
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            Title(
-                modifier = modifier
-                    .fillMaxWidth()
-                    .padding(top = 104.dp)
-            )
-            PhoneNumberInput(viewModel)
-            BottomButton(bottomButtonArgs = BottomButtonArgs(stringResource(R.string.scr_get_code_screen_get_code_btn)) {})
-        }
+        Title(
+            modifier = modifier
+                .fillMaxWidth()
+                .padding(10.dp)
+                .constrainAs(titleItem) {
+                    top.linkTo(parent.top)
+                    centerHorizontallyTo(parent)
+                }
+        )
+        PhoneNumberInput(viewModel, modifier = modifier.constrainAs(phoneNumberInputItem) {
+            centerHorizontallyTo(parent)
+            centerVerticallyTo(parent)
+        })
+        BottomButton(
+            modifier = modifier
+                .padding(15.dp)
+                .constrainAs(bottomButtonItem) {
+                    bottom.linkTo(parent.bottom)
+                    centerHorizontallyTo(parent)
+                },
+            bottomButtonArgs = BottomButtonArgs(stringResource(R.string.scr_get_code_screen_get_code_btn)) {})
     }
 }
 
