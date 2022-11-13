@@ -6,8 +6,7 @@ import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
@@ -96,12 +95,15 @@ private fun Title(modifier: Modifier = Modifier) {
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
 private fun PhoneNumberInput(viewModel: GetCodeScreenViewModel, modifier: Modifier = Modifier) {
-    val text = remember { mutableStateOf("") }
+    val text = viewModel.phoneTextFlow.collectAsState()
     val keyboardController = LocalSoftwareKeyboardController.current
     TextField(
         modifier = modifier,
         value = text.value,
-        onValueChange = { if (viewModel.checkPhoneNumberLength(it)) text.value = it },
+        onValueChange = {
+            if (viewModel.checkPhoneNumberLength(it))
+                viewModel.setTextStateFlow(it)
+        },
         singleLine = true,
         keyboardOptions = KeyboardOptions(
             keyboardType = KeyboardType.Phone,

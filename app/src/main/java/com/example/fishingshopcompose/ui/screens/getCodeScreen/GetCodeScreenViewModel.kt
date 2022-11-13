@@ -1,8 +1,18 @@
 package com.example.fishingshopcompose.ui.screens.getCodeScreen
 
 import androidx.lifecycle.ViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
 
 class GetCodeScreenViewModel: ViewModel() {
+
+    private val _phoneTextFlow = MutableStateFlow("")
+    var phoneTextFlow = _phoneTextFlow.asStateFlow()
+
+    fun setTextStateFlow(text: String){
+        _phoneTextFlow.value = text
+    }
+
     fun checkPhoneNumberLength(text: String): Boolean {
         if (text.startsWith("+") && text.length <= 12) return true
         if (text.length <= 11) return true
