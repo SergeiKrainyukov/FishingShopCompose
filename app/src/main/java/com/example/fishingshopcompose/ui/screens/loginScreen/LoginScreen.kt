@@ -1,4 +1,4 @@
-package com.example.fishingshopcompose.ui.screens
+package com.example.fishingshopcompose.ui.screens.loginScreen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*

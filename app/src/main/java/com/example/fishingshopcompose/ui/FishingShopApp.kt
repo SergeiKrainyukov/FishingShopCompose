@@ -9,7 +9,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.fishingshopcompose.ui.screens.LoginScreen
+import com.example.fishingshopcompose.ui.screens.loginScreen.LoginScreen
 import com.example.fishingshopcompose.ui.screens.getCodeScreen.GetCodeScreen
 
 @Composable
