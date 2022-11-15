@@ -9,4 +9,12 @@
     <string name="scr_get_code_screen_authorization_title">Авторизация</string>
     <string name="scr_get_code_screen_phone_number_title">по номеру телефона</string>
 
+    <!-- ConfirmationScreen -->
+    <string name="scr_confirmation_screen_title">Подтвердить номер телефона</string>
+    <string name="scr_confirmation_screen_second_title">Введите полученный код из sms-сообщения</string>
+    <string name="scr_confirmation_screen_pin_code_title">Ваш смс-код</string>
+    <string name="scr_confirmation_screen_resend_code">ВЫСЛАТЬ КОД СНОВА</string>
+    <string name="scr_confirmation_screen_seconds">с</string>
+    <string name="scr_confirmation_screen_confirm_button">Подтвердить</string>
+
 </resources>

@@ -31,7 +31,11 @@ import com.example.fishingshopcompose.ui.theme.FishingShopComposeTheme
 import com.example.fishingshopcompose.ui.theme.avenirNextFamily
 
 @Composable
-fun GetCodeScreen(viewModel: GetCodeScreenViewModel, modifier: Modifier = Modifier) {
+fun GetCodeScreen(
+    modifier: Modifier = Modifier,
+    viewModel: GetCodeScreenViewModel,
+    onGetCodeButtonClicked: () -> Unit
+) {
     ConstraintLayout(
         modifier = modifier
             .fillMaxSize()
@@ -68,7 +72,9 @@ fun GetCodeScreen(viewModel: GetCodeScreenViewModel, modifier: Modifier = Modifi
                     bottom.linkTo(parent.bottom)
                     centerHorizontallyTo(parent)
                 },
-            bottomButtonArgs = BottomButtonArgs(stringResource(R.string.scr_get_code_screen_get_code_btn)) {})
+            bottomButtonArgs = BottomButtonArgs(stringResource(R.string.scr_get_code_screen_get_code_btn)) {
+                onGetCodeButtonClicked()
+            })
     }
 }
 
@@ -127,6 +133,6 @@ private fun PhoneNumberInput(viewModel: GetCodeScreenViewModel, modifier: Modifi
 @Composable
 private fun GetCodeScreenPreview() {
     FishingShopComposeTheme {
-        GetCodeScreen(viewModel())
+        GetCodeScreen(viewModel = viewModel(), onGetCodeButtonClicked = {})
     }
 }
