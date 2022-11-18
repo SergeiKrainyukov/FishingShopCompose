@@ -12,6 +12,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.fishingshopcompose.ui.screens.confirmationScreen.ConfirmationScreen
 import com.example.fishingshopcompose.ui.screens.loginScreen.LoginScreen
 import com.example.fishingshopcompose.ui.screens.getCodeScreen.GetCodeScreen
+import com.example.fishingshopcompose.ui.screens.mainScreen.MainScreen
 
 @Composable
 fun FishingShopApp(
@@ -35,7 +36,12 @@ fun FishingShopApp(
                 })
             }
             composable(route = AppScreen.ConfirmationScreen.name) {
-                ConfirmationScreen(viewModel())
+                ConfirmationScreen(viewModel()) {
+                    navController.navigate(AppScreen.MainScreen.name)
+                }
+            }
+            composable(route = AppScreen.MainScreen.name) {
+                MainScreen(viewModel())
             }
         }
     }
@@ -45,4 +51,5 @@ enum class AppScreen {
     LoginScreen,
     GetCodeScreen,
     ConfirmationScreen,
+    MainScreen
 }

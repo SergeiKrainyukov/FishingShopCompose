@@ -33,7 +33,11 @@ import com.example.fishingshopcompose.ui.theme.FishingShopComposeTheme
 import com.example.fishingshopcompose.ui.theme.avenirNextFamily
 
 @Composable
-fun ConfirmationScreen(viewModel: ConfirmationScreenViewModel, modifier: Modifier = Modifier) {
+fun ConfirmationScreen(
+    viewModel: ConfirmationScreenViewModel,
+    modifier: Modifier = Modifier,
+    onSuccessConfirmation: () -> Unit
+) {
     ConstraintLayout(
         modifier = modifier
             .fillMaxSize()
@@ -92,7 +96,9 @@ fun ConfirmationScreen(viewModel: ConfirmationScreenViewModel, modifier: Modifie
                     bottom.linkTo(parent.bottom)
                     centerHorizontallyTo(parent)
                 },
-            bottomButtonArgs = BottomButtonArgs(stringResource(R.string.scr_confirmation_screen_confirm_button)) {})
+            bottomButtonArgs = BottomButtonArgs(stringResource(R.string.scr_confirmation_screen_confirm_button)) {
+                onSuccessConfirmation()
+            })
     }
 }
 
@@ -218,6 +224,6 @@ private fun ResendCodeTimer(modifier: Modifier) {
 @Composable
 private fun GetCodeScreenPreview() {
     FishingShopComposeTheme {
-        ConfirmationScreen(viewModel())
+        ConfirmationScreen(viewModel()) {}
     }
 }
