@@ -11,8 +11,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import com.example.fishingshopcompose.R
-import com.example.fishingshopcompose.ui.screens.common.BottomButton
-import com.example.fishingshopcompose.ui.screens.common.BottomButtonArgs
+import com.example.fishingshopcompose.ui.common.widgets.BottomButton
+import com.example.fishingshopcompose.ui.common.widgets.BottomButtonArgs
 import com.example.fishingshopcompose.ui.theme.FishingShopComposeTheme
 
 @Composable

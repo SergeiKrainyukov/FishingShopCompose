@@ -17,4 +17,17 @@
     <string name="scr_confirmation_screen_seconds">с</string>
     <string name="scr_confirmation_screen_confirm_button">Подтвердить</string>
 
+    <!-- MainScreen -->
+    <string name="scr_main_screen_icon_lbl">Главная</string>
+    <string name="scr_fishing_icon_lbl">Каталог</string>
+    <string name="scr_basket_icon_lbl">Корзина</string>
+
+    <!-- AppDrawer -->
+    <string name="scr_drawer_profile_btn_lbl">Профиль</string>
+    <string name="scr_drawer_favorites_btn_lbl">Избранное</string>
+    <string name="scr_drawer_settings_btn_lbl">Настройки</string>
+    <string name="scr_drawer_logout_btn_lbl">Выход</string>
+    <string name="scr_drawer_footer_title">интернет магазин</string>
+    <string name="scr_drawer_footer_shop">\"FISHING SHOP\"</string>
+
 </resources>

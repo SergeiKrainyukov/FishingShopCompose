@@ -27,8 +27,8 @@ import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.fishingshopcompose.R
-import com.example.fishingshopcompose.ui.screens.common.BottomButton
-import com.example.fishingshopcompose.ui.screens.common.BottomButtonArgs
+import com.example.fishingshopcompose.ui.common.widgets.BottomButton
+import com.example.fishingshopcompose.ui.common.widgets.BottomButtonArgs
 import com.example.fishingshopcompose.ui.theme.FishingShopComposeTheme
 import com.example.fishingshopcompose.ui.theme.avenirNextFamily
 
@@ -196,7 +196,7 @@ private fun DigitView(
 @Composable
 private fun ResendCodeButton(modifier: Modifier) {
     Row(modifier = modifier, horizontalArrangement = Arrangement.Center) {
-        Image(painter = painterResource(id = R.drawable.repeat_icon), contentDescription = null)
+        Image(painter = painterResource(id = R.drawable.ic_reload), contentDescription = null)
         Text(
             modifier = Modifier.padding(start = 10.dp),
             text = stringResource(id = R.string.scr_confirmation_screen_resend_code),

@@ -25,8 +25,8 @@ import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.fishingshopcompose.R
-import com.example.fishingshopcompose.ui.screens.common.BottomButton
-import com.example.fishingshopcompose.ui.screens.common.BottomButtonArgs
+import com.example.fishingshopcompose.ui.common.widgets.BottomButton
+import com.example.fishingshopcompose.ui.common.widgets.BottomButtonArgs
 import com.example.fishingshopcompose.ui.theme.FishingShopComposeTheme
 import com.example.fishingshopcompose.ui.theme.avenirNextFamily
 
