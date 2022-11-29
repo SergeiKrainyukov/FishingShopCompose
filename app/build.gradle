@@ -69,6 +69,12 @@ dependencies {
     implementation "androidx.navigation:navigation-compose:$navigation"
     implementation "androidx.constraintlayout:constraintlayout-compose:$constraint_layout"
 
+    //Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofit"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit"
+    implementation "com.squareup.okhttp3:okhttp:$ok_http"
+    implementation "com.squareup.okhttp3:logging-interceptor:$ok_http"
+
     //Testing
     testImplementation "junit:junit:$junit"
     androidTestImplementation "androidx.test.ext:junit:$junit_android"
