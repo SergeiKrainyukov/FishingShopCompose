@@ -9,7 +9,9 @@ import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
 import com.example.fishingshopcompose.ui.FishingShopApp
 import com.example.fishingshopcompose.ui.theme.FishingShopComposeTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

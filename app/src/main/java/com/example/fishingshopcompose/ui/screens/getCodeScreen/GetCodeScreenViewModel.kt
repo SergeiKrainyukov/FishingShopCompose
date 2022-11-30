@@ -1,10 +1,13 @@
 package com.example.fishingshopcompose.ui.screens.getCodeScreen
 
 import androidx.lifecycle.ViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import javax.inject.Inject
 
-class GetCodeScreenViewModel: ViewModel() {
+@HiltViewModel
+class GetCodeScreenViewModel @Inject constructor(): ViewModel() {
 
     private val _phoneTextFlow = MutableStateFlow("")
     var phoneTextFlow = _phoneTextFlow.asStateFlow()

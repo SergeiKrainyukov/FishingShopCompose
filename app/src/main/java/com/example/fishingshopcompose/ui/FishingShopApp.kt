@@ -18,7 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -29,9 +29,12 @@ import com.example.fishingshopcompose.ui.common.widgets.AppDrawer
 import com.example.fishingshopcompose.ui.common.widgets.CustomBottomBar
 import com.example.fishingshopcompose.ui.common.widgets.TopAppBar
 import com.example.fishingshopcompose.ui.screens.confirmationScreen.ConfirmationScreen
+import com.example.fishingshopcompose.ui.screens.confirmationScreen.ConfirmationScreenViewModel
 import com.example.fishingshopcompose.ui.screens.getCodeScreen.GetCodeScreen
+import com.example.fishingshopcompose.ui.screens.getCodeScreen.GetCodeScreenViewModel
 import com.example.fishingshopcompose.ui.screens.loginScreen.LoginScreen
 import com.example.fishingshopcompose.ui.screens.mainScreen.MainScreen
+import com.example.fishingshopcompose.ui.screens.mainScreen.MainScreenViewModel
 import com.example.fishingshopcompose.ui.theme.ClearRippleTheme
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
@@ -56,9 +59,9 @@ fun FishingShopApp(
                 topBar = {
                     if (needToShowTopBar(currentScreen.value))
                         TopAppBar(
-                        scaffoldState,
-                        coroutineScope
-                    )
+                            scaffoldState,
+                            coroutineScope
+                        )
                 },
                 drawerContent = {
                     AppDrawer(
@@ -90,17 +93,20 @@ fun FishingShopApp(
                         }
                     }
                     composable(route = AppScreen.GetCodeScreen.name) {
-                        GetCodeScreen(viewModel = viewModel(), onGetCodeButtonClicked = {
+                        val viewModel = hiltViewModel<GetCodeScreenViewModel>()
+                        GetCodeScreen(viewModel = viewModel) {
                             Navigator.navigateTo(AppScreen.ConfirmationScreen, navController)
-                        })
+                        }
                     }
                     composable(route = AppScreen.ConfirmationScreen.name) {
-                        ConfirmationScreen(viewModel()) {
+                        val viewModel = hiltViewModel<ConfirmationScreenViewModel>()
+                        ConfirmationScreen(viewModel = viewModel) {
                             Navigator.navigateTo(AppScreen.MainScreen, navController)
                         }
                     }
                     composable(route = AppScreen.MainScreen.name) {
-                        MainScreen(viewModel())
+                        val viewModel = hiltViewModel<MainScreenViewModel>()
+                        MainScreen(viewModel = viewModel)
                     }
                 }
             }

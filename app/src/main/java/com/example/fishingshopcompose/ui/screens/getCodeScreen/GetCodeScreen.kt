@@ -33,7 +33,7 @@ import com.example.fishingshopcompose.ui.theme.avenirNextFamily
 @Composable
 fun GetCodeScreen(
     modifier: Modifier = Modifier,
-    viewModel: GetCodeScreenViewModel,
+    viewModel: GetCodeScreenViewModel = viewModel(),
     onGetCodeButtonClicked: () -> Unit
 ) {
     ConstraintLayout(
@@ -133,6 +133,6 @@ private fun PhoneNumberInput(viewModel: GetCodeScreenViewModel, modifier: Modifi
 @Composable
 private fun GetCodeScreenPreview() {
     FishingShopComposeTheme {
-        GetCodeScreen(viewModel = viewModel(), onGetCodeButtonClicked = {})
+        GetCodeScreen(onGetCodeButtonClicked = {})
     }
 }

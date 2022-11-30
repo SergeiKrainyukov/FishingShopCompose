@@ -6,7 +6,7 @@ import androidx.compose.ui.Modifier
 import androidx.constraintlayout.compose.ConstraintLayout
 
 @Composable
-fun MainScreen(viewModel: MainScreenViewModel, modifier: Modifier = Modifier) {
+fun MainScreen(modifier: Modifier = Modifier, viewModel: MainScreenViewModel) {
     ConstraintLayout(
         modifier = modifier
             .fillMaxSize()

@@ -8,7 +8,9 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -34,14 +36,22 @@ import com.example.fishingshopcompose.ui.theme.avenirNextFamily
 
 @Composable
 fun ConfirmationScreen(
-    viewModel: ConfirmationScreenViewModel,
     modifier: Modifier = Modifier,
+    viewModel: ConfirmationScreenViewModel = viewModel(),
     onSuccessConfirmation: () -> Unit
 ) {
     ConstraintLayout(
         modifier = modifier
             .fillMaxSize()
     ) {
+
+        val confirmPinState by viewModel.confirmPinFlow.collectAsState()
+
+        LaunchedEffect(confirmPinState) {
+            if (confirmPinState == "success")
+                onSuccessConfirmation()
+        }
+
         val (backgroundItem, titleItem, pinTitleItem, phoneNumberInputItem, resendCodeButtonItem, resendCodeTimerItem, bottomButtonItem) = createRefs()
         Image(
             painter = painterResource(id = R.drawable.bg_confirmation_screen),
@@ -97,7 +107,7 @@ fun ConfirmationScreen(
                     centerHorizontallyTo(parent)
                 },
             bottomButtonArgs = BottomButtonArgs(stringResource(R.string.scr_confirmation_screen_confirm_button)) {
-                onSuccessConfirmation()
+                viewModel.confirmPin()
             })
     }
 }
@@ -150,7 +160,7 @@ fun PinView(
         modifier = modifier,
         value = text.value,
         cursorBrush = SolidColor(Color.White),
-        onValueChange = { viewModel.setTextStateFlow(it) },
+        onValueChange = { viewModel.updateTextFlow(it) },
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
         decorationBox = {
             Row(horizontalArrangement = Arrangement.SpaceBetween) {
