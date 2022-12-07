@@ -18,6 +18,7 @@
     <string name="scr_confirmation_screen_confirm_button">Подтвердить</string>
 
     <!-- MainScreen -->
+    <string name="scr_main_screen_title">Главная</string>
     <string name="scr_main_screen_icon_lbl">Главная</string>
     <string name="scr_fishing_icon_lbl">Каталог</string>
     <string name="scr_basket_icon_lbl">Корзина</string>
